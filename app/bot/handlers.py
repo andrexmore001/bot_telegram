@@ -73,11 +73,14 @@ async def respond_with_rag(message: Message, state: FSMContext):
     es enviado el RAG para ser contestado en base a los documentos.
     """
     if message.text:
-        msg = await message.answer("🤔 Consultando manuales logísticos de Interrapidisimo...")
+        # Usamos reply en lugar de answer para citar el mensaje del usuario
+        user_name = message.from_user.first_name
+        msg = await message.reply(f"🤔 {user_name}, estoy consultando los manuales logísticos...")
         try:
             # Consultar documentos mediante LlamaIndex
             response = ask_question(message.text)
-            await msg.edit_text(response)
+            # Editamos el mensaje original de respuesta manteniendo el vínculo
+            await msg.edit_text(f"✅ *Respuesta para {user_name}:*\n\n{response}", parse_mode="Markdown")
         except Exception as e:
-            await msg.edit_text("Lo siento, tuve un problema procesando tu pregunta. Intenta de nuevo más tarde.")
+            await msg.edit_text(f"Lo siento {user_name}, tuve un problema procesando tu pregunta. Intenta de nuevo más tarde.")
             print(f"Error en RAG: {e}")

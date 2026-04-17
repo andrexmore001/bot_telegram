@@ -6,7 +6,7 @@ from llama_index.embeddings.openai import OpenAIEmbedding
 from app.core.config import config
 
 # Configuraciones base para OpenAI
-Settings.llm = OpenAI(model="gpt-3.5-turbo", temperature=0.3, api_key=config.openai_api_key)
+Settings.llm = OpenAI(model="gpt-4o-mini", temperature=0.3, api_key=config.openai_api_key)
 Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small", api_key=config.openai_api_key)
 
 # Calculate absolute paths relative to root directory (where main.py is)
