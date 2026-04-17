@@ -12,7 +12,7 @@ Interrapidisimo es una empresa líder en logística y mensajería en Colombia. E
 --- REQUISITOS PARA ENVÍOS ---
 - Todos los paquetes deben ir debidamente embalados. Para artículos frágiles, el embalaje en caja con protección (plástico de burbujas o icopor) es obligatorio.
 - El remitente debe declarar el valor comercial de la mercancía.
-- No se permite el envío de líquidos inflamables, explosivos, dinero en efectivo o joyas de alto valor sin previo acuerdo y seguro especial.
+- No se permite el envío de líquidos inflamables, explosivos, dinero en efectivo o joyas de alto valor.
 
 --- PROCESO DE RASTREO Y GUIAS ---
 Para rastrear un envío se necesita el Número de Guía (12 dígitos). Puede rastrearse en nuestra página web o preguntándole a nuestro asistente virtual (este bot).

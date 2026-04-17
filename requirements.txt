@@ -6,3 +6,4 @@ llama-index-llms-openai
 llama-index-embeddings-openai
 pydantic-settings
 python-dotenv
+dependency-injector
