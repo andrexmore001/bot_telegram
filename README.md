@@ -2,7 +2,7 @@
 
 Este proyecto es una Prueba de Concepto (PoC) de un bot de Telegram diseñado para servir como asistente virtual interactivo enfocado en logística. Implementa botones interactivos, flujos estructurados de conversación (Rastreo y PQRs) y un sistema avanzado de Retrieval-Augmented Generation (RAG) para responder de forma natural a consultas sobre conocimiento interno almacenado.
 
-## 📂 Estructura de Carpetas e Índice del Proyecto
+## 📂 Estructura de Carpetas e Índice del Proyecto.
 
 A continuación se detalla exactamente para qué sirve cada componente del proyecto:
 
