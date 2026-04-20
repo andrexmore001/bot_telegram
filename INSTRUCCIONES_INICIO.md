@@ -57,5 +57,5 @@ Verás mensajes en la consola al transcurso de unos segundos informando que:
 
 ## Paso 5: Probar
 1. Abre Telegram y navega a tu bot. 
-2. Escribe `/start` (el panel de Menú de botones debería emerger).
-3. Escribe cualquier pregunta libre para probar el RAG o acciona un botón para los flujos pre-fabricados.
+2. Escribe `/start`. Verás un mensaje de bienvenida.
+3. Escribe cualquier pregunta sobre logística o políticas (ej: "¿Qué mercancías están prohibidas?"). El bot consultará los manuales y te responderá mediante IA.
