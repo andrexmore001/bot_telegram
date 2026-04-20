@@ -1,0 +1,333 @@
+[2026-04-20 12:02:19] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando componentes de infraestructura...
+[2026-04-20 12:02:19] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
+[2026-04-20 12:02:19] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-20 12:02:19] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando bot de Telegram en modo Local (Polling)...
+[2026-04-20 12:03:27] [INFO] [BOT_INTERRAPIDISIMO] - Procesando pregunta RAG: '@andreslmorenom_bot envios...'
+[2026-04-20 12:03:31] [ERROR] [BOT_INTERRAPIDISIMO] - Error durante la consulta RAG: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-*******************************************************************************************************************************************************qKr8. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+Traceback (most recent call last):
+  File "C:\Users\andreslmorenom\bot_telegram\app\infrastructure\adapters\llamaindex\adapter.py", line 69, in ask
+    response = self.query_engine.query(question)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index_instrumentation\dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index\core\base\base_query_engine.py", line 44, in query
+    query_result = self._query(str_or_query_bundle)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index_instrumentation\dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index\core\query_engine\retriever_query_engine.py", line 196, in _query
+    nodes = self.retrieve(query_bundle)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index\core\query_engine\retriever_query_engine.py", line 149, in retrieve
+    nodes = self._retriever.retrieve(query_bundle)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index_instrumentation\dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index\core\base\base_retriever.py", line 216, in retrieve
+    nodes = self._retrieve(query_bundle)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index_instrumentation\dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index\core\indices\vector_store\retrievers\retriever.py", line 111, in _retrieve
+    self._embed_model.get_agg_embedding_from_queries(
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index\core\base\embeddings\base.py", line 245, in get_agg_embedding_from_queries
+    query_embeddings = [self.get_query_embedding(query) for query in queries]
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index_instrumentation\dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index\core\base\embeddings\base.py", line 160, in get_query_embedding
+    query_embedding = self._get_query_embedding(query)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index_instrumentation\dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index\embeddings\openai\base.py", line 402, in _get_query_embedding
+    return _retryable_get_embedding()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\tenacity\__init__.py", line 331, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\tenacity\__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\tenacity\__init__.py", line 371, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\tenacity\__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\tenacity\__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index\embeddings\openai\base.py", line 395, in _retryable_get_embedding
+    return get_embedding(
+           ^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index\embeddings\openai\base.py", line 129, in get_embedding
+    client.embeddings.create(input=[text], model=engine, **kwargs).data[0].embedding
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\openai\resources\embeddings.py", line 136, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\openai\_base_client.py", line 1314, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\openai\_base_client.py", line 1087, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-*******************************************************************************************************************************************************qKr8. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+[2026-04-20 12:04:28] [INFO] [BOT_INTERRAPIDISIMO] - Procesando pregunta RAG: '@andreslmorenom_bot envios...'
+[2026-04-20 12:04:29] [ERROR] [BOT_INTERRAPIDISIMO] - Error durante la consulta RAG: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-*******************************************************************************************************************************************************qKr8. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+Traceback (most recent call last):
+  File "C:\Users\andreslmorenom\bot_telegram\app\infrastructure\adapters\llamaindex\adapter.py", line 69, in ask
+    response = self.query_engine.query(question)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index_instrumentation\dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index\core\base\base_query_engine.py", line 44, in query
+    query_result = self._query(str_or_query_bundle)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index_instrumentation\dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index\core\query_engine\retriever_query_engine.py", line 196, in _query
+    nodes = self.retrieve(query_bundle)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index\core\query_engine\retriever_query_engine.py", line 149, in retrieve
+    nodes = self._retriever.retrieve(query_bundle)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index_instrumentation\dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index\core\base\base_retriever.py", line 216, in retrieve
+    nodes = self._retrieve(query_bundle)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index_instrumentation\dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index\core\indices\vector_store\retrievers\retriever.py", line 111, in _retrieve
+    self._embed_model.get_agg_embedding_from_queries(
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index\core\base\embeddings\base.py", line 245, in get_agg_embedding_from_queries
+    query_embeddings = [self.get_query_embedding(query) for query in queries]
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index_instrumentation\dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index\core\base\embeddings\base.py", line 160, in get_query_embedding
+    query_embedding = self._get_query_embedding(query)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index_instrumentation\dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index\embeddings\openai\base.py", line 402, in _get_query_embedding
+    return _retryable_get_embedding()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\tenacity\__init__.py", line 331, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\tenacity\__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\tenacity\__init__.py", line 371, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\tenacity\__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\tenacity\__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index\embeddings\openai\base.py", line 395, in _retryable_get_embedding
+    return get_embedding(
+           ^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index\embeddings\openai\base.py", line 129, in get_embedding
+    client.embeddings.create(input=[text], model=engine, **kwargs).data[0].embedding
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\openai\resources\embeddings.py", line 136, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\openai\_base_client.py", line 1314, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\openai\_base_client.py", line 1087, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-*******************************************************************************************************************************************************qKr8. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+[2026-04-20 12:04:54] [INFO] [BOT_INTERRAPIDISIMO] - Procesando pregunta RAG: '@andreslmorenom_bot envíos...'
+[2026-04-20 12:04:56] [ERROR] [BOT_INTERRAPIDISIMO] - Error durante la consulta RAG: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-*******************************************************************************************************************************************************qKr8. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+Traceback (most recent call last):
+  File "C:\Users\andreslmorenom\bot_telegram\app\infrastructure\adapters\llamaindex\adapter.py", line 69, in ask
+    response = self.query_engine.query(question)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index_instrumentation\dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index\core\base\base_query_engine.py", line 44, in query
+    query_result = self._query(str_or_query_bundle)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index_instrumentation\dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index\core\query_engine\retriever_query_engine.py", line 196, in _query
+    nodes = self.retrieve(query_bundle)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index\core\query_engine\retriever_query_engine.py", line 149, in retrieve
+    nodes = self._retriever.retrieve(query_bundle)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index_instrumentation\dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index\core\base\base_retriever.py", line 216, in retrieve
+    nodes = self._retrieve(query_bundle)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index_instrumentation\dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index\core\indices\vector_store\retrievers\retriever.py", line 111, in _retrieve
+    self._embed_model.get_agg_embedding_from_queries(
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index\core\base\embeddings\base.py", line 245, in get_agg_embedding_from_queries
+    query_embeddings = [self.get_query_embedding(query) for query in queries]
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index_instrumentation\dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index\core\base\embeddings\base.py", line 160, in get_query_embedding
+    query_embedding = self._get_query_embedding(query)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index_instrumentation\dispatcher.py", line 413, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index\embeddings\openai\base.py", line 402, in _get_query_embedding
+    return _retryable_get_embedding()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\tenacity\__init__.py", line 331, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\tenacity\__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\tenacity\__init__.py", line 371, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\tenacity\__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\tenacity\__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index\embeddings\openai\base.py", line 395, in _retryable_get_embedding
+    return get_embedding(
+           ^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\llama_index\embeddings\openai\base.py", line 129, in get_embedding
+    client.embeddings.create(input=[text], model=engine, **kwargs).data[0].embedding
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\openai\resources\embeddings.py", line 136, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\openai\_base_client.py", line 1314, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\openai\_base_client.py", line 1087, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-*******************************************************************************************************************************************************qKr8. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+[2026-04-20 12:05:20] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando componentes de infraestructura...
+[2026-04-20 12:05:20] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
+[2026-04-20 12:05:20] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-20 12:05:20] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando bot de Telegram en modo Local (Polling)...
+[2026-04-20 12:06:37] [INFO] [BOT_INTERRAPIDISIMO] - Procesando pregunta RAG: '@andreslmorenom_bot puedo enviar gaseosas...'
+[2026-04-20 12:09:19] [INFO] [BOT_INTERRAPIDISIMO] - Procesando pregunta RAG: 'Hola...'
+[2026-04-20 12:21:45] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando componentes de infraestructura...
+[2026-04-20 12:21:45] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
+[2026-04-20 12:21:45] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-20 12:21:45] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando bot de Telegram en modo Local (Polling)...
+[2026-04-20 12:22:04] [INFO] [BOT_INTERRAPIDISIMO] - Acceso denegado en privado para user_id 6633495387. Solicitando contacto.
+[2026-04-20 12:22:16] [INFO] [BOT_INTERRAPIDISIMO] - Usuario 6633495387 verificado con el teléfono 573215458839
+[2026-04-20 12:22:48] [INFO] [BOT_INTERRAPIDISIMO] - Acceso denegado en privado para user_id 8664335936. Solicitando contacto.
+[2026-04-20 12:23:04] [WARNING] [BOT_INTERRAPIDISIMO] - Intento de acceso fallido: teléfono 573209989490 no está en whitelist.
+[2026-04-20 12:24:09] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando componentes de infraestructura...
+[2026-04-20 12:24:09] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
+[2026-04-20 12:24:09] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-20 12:24:09] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando bot de Telegram en modo Local (Polling)...
+[2026-04-20 12:24:22] [INFO] [BOT_INTERRAPIDISIMO] - Acceso denegado en privado para user_id 8664335936. Solicitando contacto.
+[2026-04-20 12:24:27] [INFO] [BOT_INTERRAPIDISIMO] - Usuario 8664335936 verificado con el teléfono 573209989490
+[2026-04-20 12:24:46] [INFO] [BOT_INTERRAPIDISIMO] - Procesando pregunta RAG: 'Puedo enviar dinero...'
+[2026-04-20 12:25:06] [INFO] [BOT_INTERRAPIDISIMO] - Procesando pregunta RAG: 'Hola...'
+[2026-04-20 12:25:29] [INFO] [BOT_INTERRAPIDISIMO] - Procesando pregunta RAG: '@andreslmorenom_bot enviar dinero...'
+[2026-04-20 12:36:26] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando componentes de infraestructura...
+[2026-04-20 12:36:26] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
+[2026-04-20 12:36:26] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-20 12:36:26] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando bot de Telegram en modo Local (Polling)...
+[2026-04-20 12:40:41] [INFO] [BOT_INTERRAPIDISIMO] - Procesando pregunta RAG: '@andreslmorenom_bot hola puedo enviar armas?...'
+[2026-04-20 12:44:13] [INFO] [BOT_INTERRAPIDISIMO] - Procesando pregunta RAG: '@andreslmorenom_bot puedo hacer envíos internacion...'
+[2026-04-20 12:45:19] [INFO] [BOT_INTERRAPIDISIMO] - Procesando pregunta RAG: '@andreslmorenom_bot cuéntame un chiste...'
+[2026-04-20 12:46:40] [INFO] [BOT_INTERRAPIDISIMO] - Procesando pregunta RAG: '@andreslmorenom_bot donde puedo poner una queja...'
+[2026-04-20 12:46:44] [INFO] [BOT_INTERRAPIDISIMO] - Procesando pregunta RAG: '@andreslmorenom_bot puedo enviar dinero...'
+[2026-04-20 12:47:38] [INFO] [BOT_INTERRAPIDISIMO] - Acceso denegado en privado para user_id 1152796530. Solicitando contacto.
+[2026-04-20 12:47:49] [INFO] [BOT_INTERRAPIDISIMO] - Acceso denegado en privado para user_id 8221818943. Solicitando contacto.
+[2026-04-20 12:48:09] [INFO] [BOT_INTERRAPIDISIMO] - Acceso denegado en privado para user_id 8221818943. Solicitando contacto.
+[2026-04-20 12:48:44] [WARNING] [BOT_INTERRAPIDISIMO] - Intento de acceso fallido: teléfono 573214665290 no está en whitelist.
+[2026-04-20 13:20:43] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando componentes de infraestructura...
+[2026-04-20 13:20:43] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
+[2026-04-20 13:20:44] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-20 13:20:44] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando bot de Telegram en modo Local (Polling)...
+[2026-04-20 13:22:59] [INFO] [BOT_INTERRAPIDISIMO] - Procesando pregunta RAG: '@andreslmorenom_bot puedo enviar una bicicleta...'
+[2026-04-20 13:23:53] [INFO] [BOT_INTERRAPIDISIMO] - Procesando pregunta RAG: '@andreslmorenom_bot que tipos de envios hay?...'
+[2026-04-20 13:26:20] [INFO] [BOT_INTERRAPIDISIMO] - Acceso denegado en privado para user_id 8587876644. Solicitando contacto.
+[2026-04-20 13:26:33] [WARNING] [BOT_INTERRAPIDISIMO] - Intento de acceso fallido: teléfono 573185403222 no está en whitelist.
+[2026-04-20 13:26:40] [INFO] [BOT_INTERRAPIDISIMO] - Acceso denegado en privado para user_id 8587876644. Solicitando contacto.
+[2026-04-20 13:26:46] [INFO] [BOT_INTERRAPIDISIMO] - Acceso denegado en privado para user_id 8587876644. Solicitando contacto.
+[2026-04-20 13:26:53] [INFO] [BOT_INTERRAPIDISIMO] - Acceso denegado en privado para user_id 8587876644. Solicitando contacto.
+[2026-04-20 13:28:39] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando componentes de infraestructura...
+[2026-04-20 13:28:39] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
+[2026-04-20 13:28:39] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-20 13:28:39] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando bot de Telegram en modo Local (Polling)...
+[2026-04-20 13:28:52] [WARNING] [BOT_INTERRAPIDISIMO] - Intento de acceso fallido: teléfono 573185403222 no está en whitelist.
+[2026-04-20 13:29:18] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando componentes de infraestructura...
+[2026-04-20 13:29:18] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
+[2026-04-20 13:29:18] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-20 13:29:18] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando bot de Telegram en modo Local (Polling)...
+[2026-04-20 13:29:36] [INFO] [BOT_INTERRAPIDISIMO] - Acceso denegado en privado para user_id 8587876644. Solicitando contacto.
+[2026-04-20 13:29:39] [INFO] [BOT_INTERRAPIDISIMO] - Usuario 8587876644 verificado con el teléfono 573185403222
+[2026-04-20 13:29:48] [INFO] [BOT_INTERRAPIDISIMO] - Procesando pregunta RAG: 'Como te llamas...'
+[2026-04-20 13:30:08] [INFO] [BOT_INTERRAPIDISIMO] - Procesando pregunta RAG: 'Y que opinas de Servientrega...'
+[2026-04-20 13:30:29] [INFO] [BOT_INTERRAPIDISIMO] - Procesando pregunta RAG: 'Quiero enviar un arma...'
+[2026-04-20 13:30:59] [INFO] [BOT_INTERRAPIDISIMO] - Procesando pregunta RAG: 'Y si envio un arma en una caja bien empacada y te ...'
+[2026-04-20 13:31:19] [INFO] [BOT_INTERRAPIDISIMO] - Procesando pregunta RAG: 'Pero si nunca supiste que era un arma...'
+[2026-04-20 13:31:39] [INFO] [BOT_INTERRAPIDISIMO] - Procesando pregunta RAG: 'Ayudame con miti miti...'
+[2026-04-20 13:31:52] [INFO] [BOT_INTERRAPIDISIMO] - Procesando pregunta RAG: 'Y con alcarrito?...'
+[2026-04-20 13:35:30] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando componentes de infraestructura...
+[2026-04-20 13:35:30] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
+[2026-04-20 13:35:30] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-20 13:35:30] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando bot de Telegram en modo Local (Polling)...
+[2026-04-20 13:35:40] [INFO] [BOT_INTERRAPIDISIMO] - Procesando pregunta RAG: 'Hola...'
+[2026-04-20 13:37:00] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando componentes de infraestructura...
+[2026-04-20 13:37:00] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
+[2026-04-20 13:37:01] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-20 13:37:01] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando bot de Telegram en modo Local (Polling)...
+[2026-04-20 13:37:05] [INFO] [BOT_INTERRAPIDISIMO] - Acceso denegado en privado para user_id 6633495387. Solicitando contacto.
+[2026-04-20 13:38:03] [WARNING] [BOT_INTERRAPIDISIMO] - Intento de acceso fallido: teléfono 573215458839 no está en whitelist.
+[2026-04-20 13:38:26] [INFO] [BOT_INTERRAPIDISIMO] - Procesando pregunta RAG: '@andreslmorenom_bot Hola....'
+[2026-04-20 13:38:43] [INFO] [BOT_INTERRAPIDISIMO] - Acceso denegado en privado para user_id 2070440627. Solicitando contacto.
+[2026-04-20 13:38:51] [WARNING] [BOT_INTERRAPIDISIMO] - Intento de acceso fallido: teléfono 573219456940 no está en whitelist.
+[2026-04-20 13:39:01] [INFO] [BOT_INTERRAPIDISIMO] - Procesando pregunta RAG: 'Hola...'
+[2026-04-20 13:39:24] [INFO] [BOT_INTERRAPIDISIMO] - Procesando pregunta RAG: 'Que puedo preguntarte?...'
+[2026-04-20 13:39:57] [INFO] [BOT_INTERRAPIDISIMO] - Procesando pregunta RAG: 'Cual es la fecha de actualización de los documento...'
+[2026-04-20 13:40:17] [INFO] [BOT_INTERRAPIDISIMO] - Procesando pregunta RAG: 'Como se que estan actualizados?...'

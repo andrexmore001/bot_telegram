@@ -5,9 +5,41 @@ from aiogram.fsm.context import FSMContext
 from dependency_injector.wiring import inject, Provide
 
 from app.domain.services.assistant_service import AssistantService
+from app.domain.ports.user_repository import UserRepositoryPort
+from app.infrastructure.logging.logger import logger
 from app.infrastructure.container import Container
 
 router = Router()
+
+@router.message(F.contact)
+@inject
+async def process_contact(
+    message: Message, 
+    user_repository: UserRepositoryPort = Provide[Container.user_repository]
+):
+    """Procesa el contacto compartido por el usuario."""
+    contact = message.contact
+    phone = contact.phone_number
+    user_id = message.from_user.id
+    
+    if user_repository.is_phone_allowed(phone):
+        user_repository.authorize_user(user_id, phone)
+        await message.answer(
+            f"✅ **¡Acceso Concedido!**\n\n"
+            f"Tu número `{phone}` ha sido verificado exitosamente. "
+            "Ahora puedes usar todas mis funciones en privado.",
+            reply_markup=ReplyKeyboardRemove(),
+            parse_mode="Markdown"
+        )
+    else:
+        logger.warning(f"Intento de acceso fallido: teléfono {phone} no está en whitelist.")
+        await message.answer(
+            "❌ **Acceso Denegado**\n\n"
+            "Lo siento, tu número de teléfono no tiene autorización para usar este servicio en privado. "
+            "Contacta al administrador para ser agregado a la lista blanca.",
+            reply_markup=ReplyKeyboardRemove(),
+            parse_mode="Markdown"
+        )
 
 @router.message(Command("start"))
 async def cmd_start(message: Message, state: FSMContext):
@@ -48,4 +80,4 @@ async def respond_with_rag(
         await msg.edit_text(f"✅ *Respuesta para {user_name}:*\n\n{response}", parse_mode="Markdown")
     except Exception as e:
         await msg.edit_text(f"Lo siento {user_name}, tuve un problema procesando tu pregunta.")
-        print(f"Error: {e}")
+        logger.error(f"Error procesando RAG para {user_name}: {e}", exc_info=True)
