@@ -49,7 +49,7 @@ class AccessControlMiddleware(BaseMiddleware):
         )
 
         await event.answer(
-            "🔒 **Acceso Restringido**\n\n"
+            "**Acceso Restringido**\n\n"
             "Para usar este asistente en privado, primero debemos validar si tu número de teléfono está autorizado.",
             reply_markup=keyboard,
             parse_mode="Markdown"

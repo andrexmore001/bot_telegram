@@ -4,6 +4,7 @@ class Settings(BaseSettings):
     telegram_bot_token: str
     openai_api_key: str
     vip_group_id: str = ""
+    vip_channel_id: str = ""
 
     
     # Para el caso de Webhooks

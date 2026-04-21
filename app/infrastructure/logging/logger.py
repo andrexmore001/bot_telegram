@@ -46,7 +46,7 @@ def get_logger(name: str):
         console_handler.setFormatter(CustomFormatter())
         logger.addHandler(console_handler)
         
-        # 2. Handler para Archivo (Plano, sin colores para mejor lectura en editores)
+        # 2. Handler para Archivo Plano
         log_dir = "logs"
         if not os.path.exists(log_dir):
             os.makedirs(log_dir)
@@ -72,10 +72,7 @@ def get_logger(name: str):
 # Logger global para la aplicación
 logger = get_logger("BOT_INTERRAPIDISIMO")
 
-
-# ──────────────────────────────────────────────────────────────
 # Logger de costos — escribe en logs/costos.log (formato CSV)
-# ──────────────────────────────────────────────────────────────
 
 _COSTOS_CSV = os.path.join("logs", "costos.log")
 _CSV_HEADERS = [

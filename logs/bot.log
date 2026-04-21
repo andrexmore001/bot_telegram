@@ -1721,3 +1721,140 @@ aiogram.exceptions.TelegramNetworkError: HTTP Client says - ClientConnectorError
 ╚══════════════╩════════════╩═════════════╩═════════════════════╝
 [2026-04-21 16:36:31] [INFO] [BOT_INTERRAPIDISIMO] - Clasificador → 'SI' para: 'Necesito el teléfono de envigado de interrapidisimo'
 [2026-04-21 16:36:31] [INFO] [BOT_INTERRAPIDISIMO] - Procesando pregunta RAG: 'Necesito el teléfono de envigado de interrapidisim...'
+[2026-04-21 16:36:34] [INFO] [BOT_INTERRAPIDISIMO] - 
+╔══════════════════════════════════════════════════════════════╗
+║              CONSUMO DE TOKENS — ANÁLISIS DE COSTO           ║
+╠══════════════╦════════════╦═════════════╦═════════════════════╣
+║ Etapa        ║ Input tok. ║ Output tok. ║ Costo (USD)         ║
+╠══════════════╬════════════╬═════════════╬═════════════════════╣
+║ Clasificador ║        278 ║           1 ║ $         0.00004230 ║
+║ RAG / LLM    ║       1549 ║          23 ║ $         0.00024615 ║
+║ Embeddings   ║         13 ║           — ║ $         0.00000026 ║
+╠══════════════╬════════════╬═════════════╬═════════════════════╣
+║ TOTAL        ║       1827 ║          24 ║ $         0.00028871 ║
+╚══════════════╩════════════╩═════════════╩═════════════════════╝
+[2026-04-21 17:41:49] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando componentes de infraestructura...
+[2026-04-21 17:41:50] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
+[2026-04-21 17:41:50] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-21 17:41:50] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando bot de Telegram en modo Local (Polling)...
+[2026-04-21 17:44:19] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando componentes de infraestructura...
+[2026-04-21 17:44:20] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando indexador de RAG (Primera ejecución)...
+[2026-04-21 17:44:23] [INFO] [BOT_INTERRAPIDISIMO] - Indexado completado y persistido en 'storage/'.
+[2026-04-21 17:44:23] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-21 17:44:23] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando bot de Telegram en modo Local (Polling)...
+[2026-04-21 17:47:24] [INFO] [BOT_INTERRAPIDISIMO] - 👀 Evento 'Nuevo Miembro' detectado en el chat ID: -1003972296623. VIP Esperado: -1003972296623
+[2026-04-21 17:47:28] [WARNING] [BOT_INTERRAPIDISIMO] - Usuario denegado detectado: ID 1152796530 (L) intentó entrar sin autorización. Expulsando.
+[2026-04-21 17:50:08] [WARNING] [BOT_INTERRAPIDISIMO] - Intento de acceso fallido: teléfono 573123189219 no está en whitelist.
+[2026-04-21 17:50:37] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando componentes de infraestructura...
+[2026-04-21 17:50:37] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
+[2026-04-21 17:50:37] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-21 17:50:37] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando bot de Telegram en modo Local (Polling)...
+[2026-04-21 17:50:47] [INFO] [BOT_INTERRAPIDISIMO] - Acceso denegado en privado para user_id 1152796530. Solicitando contacto.
+[2026-04-21 17:50:51] [INFO] [BOT_INTERRAPIDISIMO] - Usuario 1152796530 verificado con el teléfono 573123189219
+[2026-04-21 17:50:58] [INFO] [BOT_INTERRAPIDISIMO] - 👀 Evento 'Nuevo Miembro' detectado en el chat ID: -1003972296623. VIP Esperado: -1003972296623
+[2026-04-21 18:30:10] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando componentes de infraestructura...
+[2026-04-21 18:30:10] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
+[2026-04-21 18:30:11] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-21 18:30:11] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando bot de Telegram en modo Local (Polling)...
+[2026-04-21 18:30:32] [CRITICAL] [BOT_INTERRAPIDISIMO] - Fallo crítico durante el arranque: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Se agotó el tiempo de espera del semáforo]
+Traceback (most recent call last):
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohttp\connector.py", line 1310, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohappyeyeballs\impl.py", line 122, in start_connection
+    raise first_exception
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohappyeyeballs\impl.py", line 73, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohappyeyeballs\impl.py", line 208, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "C:\Users\andreslmorenom\AppData\Local\Programs\Python\Python312\Lib\asyncio\proactor_events.py", line 729, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 803, in _poll
+    value = callback(transferred, key, ov)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 599, in finish_connect
+    ov.getresult()
+OSError: [WinError 121] Se agotó el tiempo de espera del semáforo
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiogram\client\session\aiohttp.py", line 167, in make_request
+    async with session.post(
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohttp\client.py", line 1521, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohttp\connector.py", line 1623, in _create_direct_connection
+    raise last_exc
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohttp\connector.py", line 1333, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Se agotó el tiempo de espera del semáforo]
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\andreslmorenom\bot_telegram\main.py", line 65, in <module>
+    asyncio.run(dp.start_polling(bot, allowed_updates=dp.resolve_used_update_types()))
+  File "C:\Users\andreslmorenom\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 621, in start_polling
+    await asyncio.gather(*done)
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 377, in _polling
+    user: User = await bot.me()
+                 ^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiogram\client\bot.py", line 367, in me
+    self._me = await self.get_me()
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiogram\client\bot.py", line 1803, in get_me
+    return await self(call, request_timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiogram\client\bot.py", line 493, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiogram\client\session\base.py", line 259, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiogram\client\session\aiohttp.py", line 176, in make_request
+    raise TelegramNetworkError(method=method, message=f"{type(e).__name__}: {e}") from e
+aiogram.exceptions.TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Se agotó el tiempo de espera del semáforo]
+[2026-04-21 18:35:26] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando componentes de infraestructura...
+[2026-04-21 18:35:26] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
+[2026-04-21 18:35:26] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-21 18:35:26] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando bot de Telegram en modo Local (Polling)...
+[2026-04-21 18:37:10] [WARNING] [BOT_INTERRAPIDISIMO] - Usuario denegado en channel: ID 6633495387 (Andres). Expulsando.
+[2026-04-21 18:37:46] [INFO] [BOT_INTERRAPIDISIMO] - Acceso denegado en privado para user_id 6633495387. Solicitando contacto.
+[2026-04-21 18:37:50] [WARNING] [BOT_INTERRAPIDISIMO] - Intento de acceso fallido: teléfono 573215458839 no está en whitelist.
+[2026-04-21 18:38:27] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando componentes de infraestructura...
+[2026-04-21 18:38:27] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
+[2026-04-21 18:38:27] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-21 18:38:27] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando bot de Telegram en modo Local (Polling)...
+[2026-04-21 18:38:36] [INFO] [BOT_INTERRAPIDISIMO] - Acceso denegado en privado para user_id 6633495387. Solicitando contacto.
+[2026-04-21 18:38:39] [INFO] [BOT_INTERRAPIDISIMO] - Usuario 6633495387 verificado con el teléfono 573215458839
+[2026-04-21 18:56:56] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando componentes de infraestructura...
+[2026-04-21 18:56:56] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
+[2026-04-21 18:56:57] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-21 18:56:57] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando bot de Telegram en modo Local Polling...

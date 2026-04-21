@@ -29,7 +29,7 @@ async def global_error_handler(event: ErrorEvent):
     # Intentar informar al usuario si el error ocurrió durante un mensaje
     if event.update.message:
         await event.update.message.answer(
-            "⚠️ Ups, ha ocurrido un error interno inesperado. "
+            "Ha ocurrido un error interno inesperado. "
             "Ya hemos notificado al equipo técnico."
         )
 
@@ -48,11 +48,11 @@ async def lifespan(app: FastAPI):
     yield
 
 # Instanciar FastAPI
-app = FastAPI(title="PoC Interrapidisimo RAG Bot (Hexagonal)", lifespan=lifespan)
+app = FastAPI(title="PoC Interrapidisimo RAG Bot", lifespan=lifespan)
 
 @app.get("/")
 def read_root():
-    return {"status": "ok", "app": "Interrapidisimo Telegram Bot Refactored"}
+    return {"status": "ok", "app": "Interrapidisimo Telegram Bot"}
 
 # Script para ejecutar todo mediante Long Polling (ideal para local)
 if __name__ == "__main__":
@@ -61,7 +61,7 @@ if __name__ == "__main__":
         # Aseguramos que el adaptador de LlamaIndex se inicialice
         container.knowledge_base().setup()
         
-        logger.info("Iniciando bot de Telegram en modo Local (Polling)...")
-        asyncio.run(dp.start_polling(bot))
+        logger.info("Iniciando bot de Telegram en modo Local Polling...")
+        asyncio.run(dp.start_polling(bot, allowed_updates=dp.resolve_used_update_types()))
     except Exception as e:
         logger.critical(f"Fallo crítico durante el arranque: {e}", exc_info=True)
