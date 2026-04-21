@@ -1,0 +1,20 @@
+fecha,pregunta,cls_input_tok,cls_output_tok,rag_input_tok,rag_output_tok,embed_tok,total_tokens,costo_usd
+2026-04-21 08:18:07,Como se cuánto vale el envío de una caja?,242,1,1505,77,10,1835,0.00030905
+2026-04-21 13:55:36,Hola,234,1,0,0,0,235,0.00003570
+2026-04-21 14:54:58,se puede enviar traguito?,238,1,1501,43,6,1789,0.00028737
+2026-04-21 14:58:18,Hola,234,1,0,0,0,235,0.00003570
+2026-04-21 14:58:42,Que Hace interrapidisimo,239,1,0,0,0,240,0.00003645
+2026-04-21 14:59:11,Puedo enviar comestibles en caja,241,1,1504,55,8,1809,0.00029551
+2026-04-21 14:59:41,Cuabto tarda un envío Bogotá a Cali,242,1,1505,54,9,1811,0.00029523
+2026-04-21 15:18:52,Cuáles son las sedes,239,1,1502,180,6,1928,0.00036987
+2026-04-21 16:09:40,No,234,1,0,0,0,235,0.00003570
+2026-04-21 16:10:41,Y que hace interrapidisimo?,240,1,0,0,0,241,0.00003660
+2026-04-21 16:11:03,Puedo enviar un documento de bogota a cali?,244,1,1507,63,12,1827,0.00030129
+2026-04-21 16:11:20,Cuanto cuesta?,236,1,1499,110,4,1850,0.00032693
+2026-04-21 16:17:09,@andreslmorenom_bot puedo enviar armas,242,1,0,0,0,243,0.00003690
+2026-04-21 16:18:54,@andreslmorenom_bot sabe el número de teléfono de bucaramanga,249,1,0,0,0,250,0.00003795
+2026-04-21 16:19:30,@andreslmorenom_bot Puedo enviar dinero,243,1,0,0,0,244,0.00003705
+2026-04-21 16:22:34,@andreslmorenom_bot Puedo enviar dinero,260,1,0,0,0,261,0.00003960
+2026-04-21 16:24:30,@andreslmorenom_bot Puedo enviar dinero,260,1,0,0,0,261,0.00003960
+2026-04-21 16:30:59,puedo enviar dinero?,269,1,1539,34,5,1848,0.00029230
+2026-04-21 16:36:34,Necesito el teléfono de envigado de interrapidisimo,278,1,1549,23,13,1864,0.00028871

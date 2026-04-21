@@ -3,6 +3,7 @@ import sys
 import os
 from logging.handlers import RotatingFileHandler
 from datetime import datetime
+import csv
 
 class CustomFormatter(logging.Formatter):
     """
@@ -70,3 +71,63 @@ def get_logger(name: str):
 
 # Logger global para la aplicación
 logger = get_logger("BOT_INTERRAPIDISIMO")
+
+
+# ──────────────────────────────────────────────────────────────
+# Logger de costos — escribe en logs/costos.log (formato CSV)
+# ──────────────────────────────────────────────────────────────
+
+_COSTOS_CSV = os.path.join("logs", "costos.log")
+_CSV_HEADERS = [
+    "fecha",
+    "pregunta",
+    "cls_input_tok",
+    "cls_output_tok",
+    "rag_input_tok",
+    "rag_output_tok",
+    "embed_tok",
+    "total_tokens",
+    "costo_usd",
+]
+
+def _ensure_csv_headers():
+    """Crea el archivo CSV con cabeceras si no existe."""
+    log_dir = "logs"
+    if not os.path.exists(log_dir):
+        os.makedirs(log_dir)
+    if not os.path.exists(_COSTOS_CSV):
+        with open(_COSTOS_CSV, "w", newline="", encoding="utf-8") as f:
+            writer = csv.writer(f)
+            writer.writerow(_CSV_HEADERS)
+
+
+def log_token_cost(
+    *,
+    question: str,
+    cls_input: int,
+    cls_output: int,
+    rag_input: int,
+    rag_output: int,
+    embed_tokens: int,
+    cost_usd: float,
+):
+    """
+    Registra el consumo de tokens y costo de una interacción en logs/costos.log
+    en formato CSV para análisis posterior.
+    """
+    _ensure_csv_headers()
+    total_tokens = cls_input + cls_output + rag_input + rag_output + embed_tokens
+    row = [
+        datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        question[:120].replace(",", " "),   # evitar romper el CSV
+        cls_input,
+        cls_output,
+        rag_input,
+        rag_output,
+        embed_tokens,
+        total_tokens,
+        f"{cost_usd:.8f}",
+    ]
+    with open(_COSTOS_CSV, "a", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow(row)

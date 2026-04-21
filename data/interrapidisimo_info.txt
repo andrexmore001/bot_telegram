@@ -1,22 +1,53 @@
-INTERRAPIDISIMO - INFORMACIÓN DE SERVICIOS Y POLÍTICAS
+====================
+INTERRAPIDISIMO - INFORMACIÓN OFICIAL PARA CHATBOT
+====================
 
 --- SOBRE NOSOTROS ---
-Interrapidisimo es una empresa líder en logística y mensajería en Colombia. Entregamos paquetes, documentos y carga a nivel nacional e internacional.
+Interrapidisimo es la empresa de logística con mayor cobertura en Colombia, conectando el 100% de los municipios del país. Nos especializamos en soluciones de transporte de mensajería expresa, carga y envíos internacionales, apoyados en una red de más de 3,000 centros de recepción (RACOL).
 
 --- SERVICIOS Y TIEMPOS DE ENTREGA ---
-1. Mensajería Expresa (Documentos): Tiempo estimado de 24 a 48 horas en ciudades principales.
-2. Paquetería: Entrega de paquetes hasta 50 kg. Tiempos de 24 a 72 horas dependiendo del destino.
-3. Carga Terrestre: Para mercancía voluminosa. Tiempos de 3 a 5 días hábiles.
-4. Envíos Internacionales: Cobertura global. Tiempos varían según el país destino (generalmente 5 a 15 días hábiles).
+1. MENSAJERÍA EXPRESA: Documentos y sobres de hasta 2 kg. Entrega prioritaria (24h en ciudades principales).
+2. PAQUETERÍA: Envío de cajas y mercancías. Tiempo estándar de 24 a 72 horas, según el destino.
+3. CARGA TERRESTRE: Envíos superiores a 50 kg o gran volumen. Tiempo estimado: 3 a 5 días hábiles.
+4. INTER INTERNACIONAL: Cobertura global. Tiempos de 3 a 12 días hábiles según aduana y país.
+5. SERVICIO CONTRA ENTREGA: El destinatario paga el costo del envío o el valor del producto al recibir.
 
 --- REQUISITOS PARA ENVÍOS ---
-- Todos los paquetes deben ir debidamente embalados. Para artículos frágiles, el embalaje en caja con protección (plástico de burbujas o icopor) es obligatorio.
-- El remitente debe declarar el valor comercial de la mercancía.
-- No se permite el envío de líquidos inflamables, explosivos, dinero en efectivo o joyas de alto valor.
+* EMBALAJE: Responsabilidad del remitente. Artículos frágiles requieren guacal de madera o protección rígida. No se aceptan bolsas de basura como empaque externo.
+* DECLARACIÓN DE VALOR: Debe informarse el valor real para el seguro (pérdida o daño).
+* ARTÍCULOS PROHIBIDOS: Armas (pistolas, revólveres, cuchillos), estupefacientes (drogas, narcóticos), dinero en efectivo (plata, billetes), títulos valores, animales vivos, sustancias corrosivas, licores (trago, alcohol, bebidas alcohólicas, aguardiente, cerveza, ron, whisky, vino) o inflamables.
+* NOTA: No se puede enviar trago, alcohol ni bebidas alcohólicas por ningún servicio de Interrapidísimo.
+* PESO VOLUMÉTRICO: Se calcula como (Largo x Ancho x Alto cm) / 6000.
 
---- PROCESO DE RASTREO Y GUIAS ---
-Para rastrear un envío se necesita el Número de Guía (12 dígitos). Puede rastrearse en nuestra página web o preguntándole a nuestro asistente virtual (este bot).
+--- RASTREO Y GUÍAS ---
+* NÚMERO DE GUÍA: Código numérico de 11 a 12 dígitos (Ej: 700012345678).
+* CANALES: Portal Web (Sigue tu envío), App Interrapidisimo, y Chatbot oficial.
 
---- PQR Y SOPORTE ---
-- Si un paquete presenta retraso mayor a 3 días sobre la fecha prometida, el usuario puede iniciar una PQR (Petición, Queja o Reclamo).
-- El soporte al cliente atiende de lunes a sábado de 8:00 AM a 6:00 PM.
+--- PQR Y SOPORTE AL CLIENTE ---
+* GARANTÍA: Radicación de PQR si se supera el tiempo máximo prometido.
+* INDEMNIZACIONES: Basadas en el valor declarado en caso de pérdida o avería demostrable.
+* HORARIOS DE ATENCIÓN:
+  - Lunes a Viernes: 7:00 AM a 7:00 PM.
+  - Sábados: 8:00 AM a 1:00 PM.
+* LÍNEA NACIONAL: 323 254 0404
+* CONMUTADOR BOGOTÁ: (601) 560 5000
+
+--- SOBRE LAS SEDES (RACOL) Y TELÉFONOS ---
+---Numero de atencion al cliente---
+3215458839
+---Numero de atencion Soporte---
+3215458839
+
+Zona / Ciudad,Teléfono de Referencia,Tipo de Oficina
+Bogotá - Centro,(601) 560 5000,Oficina Principal
+Bogotá - Norte,(601) 610 2525,Sede Territorial
+Medellín - Itagüí,(604) 372 0505,Coordinación RACOL
+Cali - Norte,(602) 660 8585,Sede Territorial
+Barranquilla,(605) 351 4545,Coordinación Costa
+Bucaramanga,(607) 642 2020,Sede Territorial
+Pereira,(606) 335 1515,Eje Cafetero
+
+--SITIOS O HERRAMIENTAS WEB--
+PAGINA WEB: https://interrapidisimo.com/
+COTIZADOR web: https://interrapidisimo.com/cotiza-tu-envio/
+RASTREO - SIGUE TU ENVIO web: https://interrapidisimo.com/SiguetuEnvio/shipment
