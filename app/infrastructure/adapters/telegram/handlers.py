@@ -114,6 +114,11 @@ async def on_new_chat_members(
                 await message.answer(f"🔒 {new_member.first_name} ha sido retirado porque no cuenta con verificación en el chat privado.")
             except Exception as e:
                 logger.error(f"Error intentando expulsar al usuario {new_member.id}: {e}")
+        else:
+            await message.answer(
+                f"🎉 ¡Bienvenido/a {new_member.first_name} al Grupo de Interrapidísimo!\n\n"
+                f"Nos alegra tenerte por aquí. 📦"
+            )
 
 @router.chat_member(ChatMemberUpdatedFilter(IS_NOT_MEMBER >> MEMBER))
 @inject

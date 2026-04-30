@@ -7,3 +7,4 @@ llama-index-embeddings-openai
 pydantic-settings
 python-dotenv
 dependency-injector
+python-multipart

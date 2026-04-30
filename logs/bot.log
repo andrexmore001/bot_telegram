@@ -1858,3 +1858,722 @@ aiogram.exceptions.TelegramNetworkError: HTTP Client says - ClientConnectorError
 [2026-04-21 18:56:56] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
 [2026-04-21 18:56:57] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
 [2026-04-21 18:56:57] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando bot de Telegram en modo Local Polling...
+[2026-04-22 12:11:20] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando componentes de infraestructura...
+[2026-04-22 12:11:20] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
+[2026-04-22 12:11:20] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-22 12:11:20] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando bot de Telegram en modo Local Polling...
+[2026-04-22 12:11:42] [CRITICAL] [BOT_INTERRAPIDISIMO] - Fallo crítico durante el arranque: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Se agotó el tiempo de espera del semáforo]
+Traceback (most recent call last):
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohttp\connector.py", line 1310, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohappyeyeballs\impl.py", line 122, in start_connection
+    raise first_exception
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohappyeyeballs\impl.py", line 73, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohappyeyeballs\impl.py", line 208, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "C:\Users\andreslmorenom\AppData\Local\Programs\Python\Python312\Lib\asyncio\proactor_events.py", line 729, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 803, in _poll
+    value = callback(transferred, key, ov)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 599, in finish_connect
+    ov.getresult()
+OSError: [WinError 121] Se agotó el tiempo de espera del semáforo
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiogram\client\session\aiohttp.py", line 167, in make_request
+    async with session.post(
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohttp\client.py", line 1521, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohttp\connector.py", line 1623, in _create_direct_connection
+    raise last_exc
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohttp\connector.py", line 1333, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Se agotó el tiempo de espera del semáforo]
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\andreslmorenom\bot_telegram\main.py", line 65, in <module>
+    asyncio.run(dp.start_polling(bot, allowed_updates=dp.resolve_used_update_types()))
+  File "C:\Users\andreslmorenom\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 621, in start_polling
+    await asyncio.gather(*done)
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 377, in _polling
+    user: User = await bot.me()
+                 ^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiogram\client\bot.py", line 367, in me
+    self._me = await self.get_me()
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiogram\client\bot.py", line 1803, in get_me
+    return await self(call, request_timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiogram\client\bot.py", line 493, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiogram\client\session\base.py", line 259, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiogram\client\session\aiohttp.py", line 176, in make_request
+    raise TelegramNetworkError(method=method, message=f"{type(e).__name__}: {e}") from e
+aiogram.exceptions.TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Se agotó el tiempo de espera del semáforo]
+[2026-04-22 12:12:16] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando componentes de infraestructura...
+[2026-04-22 12:12:16] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
+[2026-04-22 12:12:16] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-22 12:12:16] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando bot de Telegram en modo Local Polling...
+[2026-04-22 12:13:51] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando componentes de infraestructura...
+[2026-04-22 12:13:51] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
+[2026-04-22 12:13:51] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-22 12:13:51] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando bot de Telegram en modo Local Polling...
+[2026-04-22 12:14:40] [INFO] [BOT_INTERRAPIDISIMO] - Acceso denegado en privado para user_id 2070440627. Solicitando contacto.
+[2026-04-22 12:14:44] [WARNING] [BOT_INTERRAPIDISIMO] - Intento de acceso fallido: teléfono 573219456940 no está en whitelist.
+[2026-04-22 12:15:12] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando componentes de infraestructura...
+[2026-04-22 12:15:12] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
+[2026-04-22 12:15:13] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-22 12:15:13] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando bot de Telegram en modo Local Polling...
+[2026-04-22 12:15:18] [INFO] [BOT_INTERRAPIDISIMO] - Usuario 2070440627 verificado con el teléfono 573219456940
+[2026-04-22 12:15:27] [INFO] [BOT_INTERRAPIDISIMO] - 👀 Evento 'Nuevo Miembro' detectado en el chat ID: -1003972296623. VIP Esperado: -1003972296623
+[2026-04-22 14:58:17] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando componentes de infraestructura...
+[2026-04-22 14:58:17] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
+[2026-04-22 14:58:17] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-22 14:58:17] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando bot de Telegram en modo Local Polling...
+[2026-04-22 14:58:38] [CRITICAL] [BOT_INTERRAPIDISIMO] - Fallo crítico durante el arranque: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Se agotó el tiempo de espera del semáforo]
+Traceback (most recent call last):
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohttp\connector.py", line 1310, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohappyeyeballs\impl.py", line 122, in start_connection
+    raise first_exception
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohappyeyeballs\impl.py", line 73, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohappyeyeballs\impl.py", line 208, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "C:\Users\andreslmorenom\AppData\Local\Programs\Python\Python312\Lib\asyncio\proactor_events.py", line 729, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 803, in _poll
+    value = callback(transferred, key, ov)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 599, in finish_connect
+    ov.getresult()
+OSError: [WinError 121] Se agotó el tiempo de espera del semáforo
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiogram\client\session\aiohttp.py", line 167, in make_request
+    async with session.post(
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohttp\client.py", line 1521, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohttp\connector.py", line 1623, in _create_direct_connection
+    raise last_exc
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohttp\connector.py", line 1333, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Se agotó el tiempo de espera del semáforo]
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\andreslmorenom\bot_telegram\main.py", line 70, in <module>
+    asyncio.run(dp.start_polling(bot, allowed_updates=dp.resolve_used_update_types()))
+  File "C:\Users\andreslmorenom\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 621, in start_polling
+    await asyncio.gather(*done)
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 377, in _polling
+    user: User = await bot.me()
+                 ^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiogram\client\bot.py", line 367, in me
+    self._me = await self.get_me()
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiogram\client\bot.py", line 1803, in get_me
+    return await self(call, request_timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiogram\client\bot.py", line 493, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiogram\client\session\base.py", line 259, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\app\infrastructure\adapters\telegram\retry_middleware.py", line 24, in __call__
+    return await make_request(bot, method)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiogram\client\session\aiohttp.py", line 176, in make_request
+    raise TelegramNetworkError(method=method, message=f"{type(e).__name__}: {e}") from e
+aiogram.exceptions.TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Se agotó el tiempo de espera del semáforo]
+[2026-04-22 14:58:47] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando componentes de infraestructura...
+[2026-04-22 14:58:47] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
+[2026-04-22 14:58:47] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-22 14:58:47] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando bot de Telegram en modo Local Polling...
+[2026-04-22 14:59:09] [CRITICAL] [BOT_INTERRAPIDISIMO] - Fallo crítico durante el arranque: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Se agotó el tiempo de espera del semáforo]
+Traceback (most recent call last):
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohttp\connector.py", line 1310, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohappyeyeballs\impl.py", line 122, in start_connection
+    raise first_exception
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohappyeyeballs\impl.py", line 73, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohappyeyeballs\impl.py", line 208, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "C:\Users\andreslmorenom\AppData\Local\Programs\Python\Python312\Lib\asyncio\proactor_events.py", line 729, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 803, in _poll
+    value = callback(transferred, key, ov)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 599, in finish_connect
+    ov.getresult()
+OSError: [WinError 121] Se agotó el tiempo de espera del semáforo
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiogram\client\session\aiohttp.py", line 167, in make_request
+    async with session.post(
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohttp\client.py", line 1521, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohttp\connector.py", line 1623, in _create_direct_connection
+    raise last_exc
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiohttp\connector.py", line 1333, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Se agotó el tiempo de espera del semáforo]
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\andreslmorenom\bot_telegram\main.py", line 70, in <module>
+    asyncio.run(dp.start_polling(bot, allowed_updates=dp.resolve_used_update_types()))
+  File "C:\Users\andreslmorenom\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 621, in start_polling
+    await asyncio.gather(*done)
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 377, in _polling
+    user: User = await bot.me()
+                 ^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiogram\client\bot.py", line 367, in me
+    self._me = await self.get_me()
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiogram\client\bot.py", line 1803, in get_me
+    return await self(call, request_timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiogram\client\bot.py", line 493, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiogram\client\session\base.py", line 259, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\app\infrastructure\adapters\telegram\retry_middleware.py", line 24, in __call__
+    return await make_request(bot, method)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\aiogram\client\session\aiohttp.py", line 176, in make_request
+    raise TelegramNetworkError(method=method, message=f"{type(e).__name__}: {e}") from e
+aiogram.exceptions.TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Se agotó el tiempo de espera del semáforo]
+[2026-04-22 14:59:40] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando componentes de infraestructura...
+[2026-04-22 14:59:40] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
+[2026-04-22 14:59:40] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-22 14:59:40] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando bot de Telegram en modo Local Polling...
+[2026-04-27 17:36:11] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando componentes de infraestructura...
+[2026-04-27 17:36:12] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
+[2026-04-27 17:36:12] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-27 17:36:12] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando bot de Telegram en modo Local Polling...
+[2026-04-27 17:43:08] [INFO] [BOT_INTERRAPIDISIMO] - 👀 Evento 'Nuevo Miembro' detectado en el chat ID: -1003972296623. VIP Esperado: -1003972296623
+[2026-04-27 17:44:00] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando componentes de infraestructura...
+[2026-04-27 17:44:01] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
+[2026-04-27 17:44:01] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-27 17:44:01] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando bot de Telegram en modo Local Polling...
+[2026-04-27 17:44:14] [WARNING] [BOT_INTERRAPIDISIMO] - Usuario denegado en supergroup: ID 8587876644 (Jhon). Expulsando.
+[2026-04-27 17:44:15] [INFO] [BOT_INTERRAPIDISIMO] - 👀 Evento 'Nuevo Miembro' detectado en el chat ID: -1003972296623. VIP Esperado: -1003972296623
+[2026-04-27 17:44:16] [WARNING] [BOT_INTERRAPIDISIMO] - Usuario denegado detectado: ID 8587876644 (Jhon) intentó entrar sin autorización. Expulsando.
+[2026-04-27 17:45:06] [INFO] [BOT_INTERRAPIDISIMO] - Acceso denegado en privado para user_id 8587876644. Solicitando contacto.
+[2026-04-27 17:45:18] [WARNING] [BOT_INTERRAPIDISIMO] - Intento de acceso fallido: teléfono 573185403222 no está en whitelist.
+[2026-04-27 17:45:44] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando componentes de infraestructura...
+[2026-04-27 17:45:44] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
+[2026-04-27 17:45:45] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-27 17:45:45] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando bot de Telegram en modo Local Polling...
+[2026-04-27 17:45:46] [INFO] [BOT_INTERRAPIDISIMO] - Usuario 8587876644 verificado con el teléfono 573185403222
+[2026-04-27 17:45:51] [INFO] [BOT_INTERRAPIDISIMO] - 👀 Evento 'Nuevo Miembro' detectado en el chat ID: -1003972296623. VIP Esperado: -1003972296623
+[2026-04-29 09:36:00] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando servidor API y Bot...
+[2026-04-29 09:37:30] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando servidor API y Bot...
+[2026-04-29 09:39:10] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando servidor API y Bot...
+[2026-04-29 09:39:10] [INFO] [BOT_INTERRAPIDISIMO] - Levantando FastAPI y RAG (Lifespan)...
+[2026-04-29 09:39:11] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
+[2026-04-29 09:39:11] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-29 09:39:11] [INFO] [BOT_INTERRAPIDISIMO] - Bot de Telegram iniciado en segundo plano.
+[2026-04-29 09:54:12] [INFO] [BOT_INTERRAPIDISIMO] - Cerrando Bot y FastAPI...
+[2026-04-29 09:55:00] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando servidor API y Bot...
+[2026-04-29 09:55:00] [INFO] [BOT_INTERRAPIDISIMO] - Levantando FastAPI y RAG (Lifespan)...
+[2026-04-29 09:55:00] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
+[2026-04-29 09:55:00] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-29 09:55:00] [INFO] [BOT_INTERRAPIDISIMO] - Bot de Telegram iniciado en segundo plano.
+[2026-04-29 10:16:00] [WARNING] [BOT_INTERRAPIDISIMO] - Token inválido: Signature has expired.
+[2026-04-29 10:16:04] [WARNING] [BOT_INTERRAPIDISIMO] - Token inválido: Signature has expired.
+[2026-04-29 10:16:08] [WARNING] [BOT_INTERRAPIDISIMO] - Token inválido: Signature has expired.
+[2026-04-29 10:16:09] [WARNING] [BOT_INTERRAPIDISIMO] - Token inválido: Signature has expired.
+[2026-04-29 10:16:10] [WARNING] [BOT_INTERRAPIDISIMO] - Token inválido: Signature has expired.
+[2026-04-29 10:16:24] [WARNING] [BOT_INTERRAPIDISIMO] - Token inválido: Signature has expired.
+[2026-04-29 10:16:38] [WARNING] [BOT_INTERRAPIDISIMO] - Token inválido: Signature has expired.
+[2026-04-29 10:54:43] [WARNING] [BOT_INTERRAPIDISIMO] - Token inválido: Signature has expired.
+[2026-04-29 10:54:54] [WARNING] [BOT_INTERRAPIDISIMO] - Token inválido: Signature has expired.
+[2026-04-29 11:00:23] [WARNING] [BOT_INTERRAPIDISIMO] - Token inválido: Signature has expired.
+[2026-04-29 11:07:57] [WARNING] [BOT_INTERRAPIDISIMO] - Token inválido: Signature has expired.
+[2026-04-29 11:38:57] [INFO] [BOT_INTERRAPIDISIMO] - Cerrando Bot y FastAPI...
+[2026-04-29 11:39:11] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando servidor API y Bot...
+[2026-04-29 11:39:11] [INFO] [BOT_INTERRAPIDISIMO] - Levantando FastAPI y RAG (Lifespan)...
+[2026-04-29 11:39:12] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
+[2026-04-29 11:39:12] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-29 11:39:12] [INFO] [BOT_INTERRAPIDISIMO] - Bot de Telegram iniciado en segundo plano.
+[2026-04-29 14:28:55] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando servidor API y Bot...
+[2026-04-29 14:28:55] [INFO] [BOT_INTERRAPIDISIMO] - Levantando FastAPI y RAG (Lifespan)...
+[2026-04-29 14:28:55] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
+[2026-04-29 14:28:55] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-29 14:28:55] [INFO] [BOT_INTERRAPIDISIMO] - Bot de Telegram iniciado en segundo plano.
+[2026-04-29 14:32:38] [WARNING] [BOT_INTERRAPIDISIMO] - Token inválido: Signature verification failed.
+[2026-04-29 14:46:25] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando servidor API y Bot...
+[2026-04-29 14:46:25] [INFO] [BOT_INTERRAPIDISIMO] - Levantando FastAPI y RAG (Lifespan)...
+[2026-04-29 14:46:25] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
+[2026-04-29 14:46:25] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-29 14:46:25] [INFO] [BOT_INTERRAPIDISIMO] - Bot de Telegram iniciado en segundo plano.
+[2026-04-29 14:46:37] [ERROR] [BOT_INTERRAPIDISIMO] - Error interno no controlado en GET /admin/users: cannot import name 'container' from 'app.infrastructure.container' (C:\Users\andreslmorenom\bot_telegram\app\infrastructure\container.py)
+Traceback (most recent call last):
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\starlette\middleware\cors.py", line 96, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\starlette\middleware\cors.py", line 154, in simple_response
+    await self.app(scope, receive, send)
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\starlette\routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\starlette\routing.py", line 680, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\fastapi\routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\fastapi\routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\fastapi\routing.py", line 674, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\fastapi\routing.py", line 328, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\app\infrastructure\adapters\api\admin_router.py", line 138, in get_authorized_users
+    from app.infrastructure.container import container
+ImportError: cannot import name 'container' from 'app.infrastructure.container' (C:\Users\andreslmorenom\bot_telegram\app\infrastructure\container.py)
+
+[2026-04-29 14:47:02] [ERROR] [BOT_INTERRAPIDISIMO] - Error interno no controlado en GET /admin/users: cannot import name 'container' from 'app.infrastructure.container' (C:\Users\andreslmorenom\bot_telegram\app\infrastructure\container.py)
+Traceback (most recent call last):
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\starlette\middleware\cors.py", line 96, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\starlette\middleware\cors.py", line 154, in simple_response
+    await self.app(scope, receive, send)
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\starlette\routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\starlette\routing.py", line 680, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\fastapi\routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\fastapi\routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\fastapi\routing.py", line 674, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\venv\Lib\site-packages\fastapi\routing.py", line 328, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andreslmorenom\bot_telegram\app\infrastructure\adapters\api\admin_router.py", line 138, in get_authorized_users
+    from app.infrastructure.container import container
+ImportError: cannot import name 'container' from 'app.infrastructure.container' (C:\Users\andreslmorenom\bot_telegram\app\infrastructure\container.py)
+
+[2026-04-29 14:48:19] [INFO] [BOT_INTERRAPIDISIMO] - Cerrando Bot y FastAPI...
+[2026-04-29 14:48:19] [INFO] [BOT_INTERRAPIDISIMO] - Bot detenido correctamente.
+[2026-04-29 14:48:26] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando servidor API y Bot...
+[2026-04-29 14:48:26] [INFO] [BOT_INTERRAPIDISIMO] - Levantando FastAPI y RAG (Lifespan)...
+[2026-04-29 14:48:26] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
+[2026-04-29 14:48:26] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-29 14:48:26] [INFO] [BOT_INTERRAPIDISIMO] - Bot de Telegram iniciado en segundo plano.
+[2026-04-29 14:52:49] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando servidor API y Bot...
+[2026-04-29 14:52:49] [INFO] [BOT_INTERRAPIDISIMO] - Levantando FastAPI y RAG (Lifespan)...
+[2026-04-29 14:52:49] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
+[2026-04-29 14:52:49] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-29 14:52:49] [INFO] [BOT_INTERRAPIDISIMO] - Bot de Telegram iniciado en segundo plano.
+[2026-04-29 14:52:55] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 1110.54ms
+[2026-04-29 14:53:15] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/users - Status: 200 - Time: 1.01ms
+[2026-04-29 14:53:25] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/config - Status: 200 - Time: 1.51ms
+[2026-04-29 14:59:58] [INFO] [BOT_INTERRAPIDISIMO] - Cerrando Bot y FastAPI...
+[2026-04-29 14:59:58] [INFO] [BOT_INTERRAPIDISIMO] - Bot detenido correctamente.
+[2026-04-29 15:00:05] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando servidor API y Bot...
+[2026-04-29 15:00:05] [INFO] [BOT_INTERRAPIDISIMO] - Levantando FastAPI y RAG (Lifespan)...
+[2026-04-29 15:00:05] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
+[2026-04-29 15:00:06] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-29 15:00:06] [INFO] [BOT_INTERRAPIDISIMO] - Bot de Telegram iniciado en segundo plano.
+[2026-04-29 15:00:14] [INFO] [BOT_INTERRAPIDISIMO] - API OPTIONS /admin/channels - Status: 200 - Time: 0.00ms
+[2026-04-29 15:00:16] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 1283.79ms
+[2026-04-29 15:04:12] [INFO] [BOT_INTERRAPIDISIMO] - API OPTIONS /admin/channels - Status: 200 - Time: 0.00ms
+[2026-04-29 15:04:12] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 1.03ms
+[2026-04-29 15:05:49] [INFO] [BOT_INTERRAPIDISIMO] - API OPTIONS /admin/channels - Status: 200 - Time: 0.00ms
+[2026-04-29 15:05:49] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 1.54ms
+[2026-04-29 15:05:51] [INFO] [BOT_INTERRAPIDISIMO] - API OPTIONS /admin/users - Status: 200 - Time: 0.00ms
+[2026-04-29 15:05:52] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/users - Status: 200 - Time: 1.50ms
+[2026-04-29 15:05:53] [INFO] [BOT_INTERRAPIDISIMO] - API OPTIONS /admin/config - Status: 200 - Time: 0.00ms
+[2026-04-29 15:05:53] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/config - Status: 200 - Time: 2.54ms
+[2026-04-29 15:06:33] [INFO] [BOT_INTERRAPIDISIMO] - Cerrando Bot y FastAPI...
+[2026-04-29 15:06:33] [INFO] [BOT_INTERRAPIDISIMO] - Bot detenido correctamente.
+[2026-04-29 15:06:41] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando servidor API y Bot...
+[2026-04-29 15:06:41] [INFO] [BOT_INTERRAPIDISIMO] - Levantando FastAPI y RAG (Lifespan)...
+[2026-04-29 15:06:41] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
+[2026-04-29 15:06:41] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-29 15:06:41] [INFO] [BOT_INTERRAPIDISIMO] - Bot de Telegram iniciado en segundo plano.
+[2026-04-29 15:07:26] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 1276.19ms
+[2026-04-29 15:07:27] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 1.02ms
+[2026-04-29 15:07:29] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/users - Status: 200 - Time: 2.58ms
+[2026-04-29 15:07:31] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/config - Status: 200 - Time: 3.84ms
+[2026-04-29 15:07:40] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 1.00ms
+[2026-04-29 15:07:43] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/users - Status: 200 - Time: 0.50ms
+[2026-04-29 15:09:31] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando servidor API y Bot...
+[2026-04-29 15:09:31] [INFO] [BOT_INTERRAPIDISIMO] - Levantando FastAPI y RAG (Lifespan)...
+[2026-04-29 15:09:31] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
+[2026-04-29 15:09:31] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-29 15:09:31] [INFO] [BOT_INTERRAPIDISIMO] - Bot de Telegram iniciado en segundo plano.
+[2026-04-29 15:09:37] [INFO] [BOT_INTERRAPIDISIMO] - API OPTIONS /admin/channels - Status: 200 - Time: 0.00ms
+[2026-04-29 15:09:39] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-29 15:09:39] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: None
+[2026-04-29 15:09:39] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-29 15:09:39] [WARNING] [BOT_INTERRAPIDISIMO] - ¡BLOQUEADO! Audiencia incorrecta o ausente.
+[2026-04-29 15:09:39] [WARNING] [BOT_INTERRAPIDISIMO] - Token inválido: Audience verification failed
+[2026-04-29 15:09:39] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 401 - Time: 1318.23ms
+[2026-04-29 15:09:40] [INFO] [BOT_INTERRAPIDISIMO] - API OPTIONS /admin/channels - Status: 200 - Time: 0.00ms
+[2026-04-29 15:09:40] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-29 15:09:40] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: None
+[2026-04-29 15:09:40] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-29 15:09:40] [WARNING] [BOT_INTERRAPIDISIMO] - ¡BLOQUEADO! Audiencia incorrecta o ausente.
+[2026-04-29 15:09:40] [WARNING] [BOT_INTERRAPIDISIMO] - Token inválido: Audience verification failed
+[2026-04-29 15:09:40] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 401 - Time: 2.00ms
+[2026-04-29 15:09:57] [INFO] [BOT_INTERRAPIDISIMO] - API OPTIONS /admin/channels - Status: 200 - Time: 0.00ms
+[2026-04-29 15:09:57] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-29 15:09:57] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: None
+[2026-04-29 15:09:57] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-29 15:09:57] [WARNING] [BOT_INTERRAPIDISIMO] - ¡BLOQUEADO! Audiencia incorrecta o ausente.
+[2026-04-29 15:09:57] [WARNING] [BOT_INTERRAPIDISIMO] - Token inválido: Audience verification failed
+[2026-04-29 15:09:57] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 401 - Time: 3.06ms
+[2026-04-29 15:09:58] [INFO] [BOT_INTERRAPIDISIMO] - API OPTIONS /admin/channels - Status: 200 - Time: 0.51ms
+[2026-04-29 15:09:58] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-29 15:09:58] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: None
+[2026-04-29 15:09:58] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-29 15:09:58] [WARNING] [BOT_INTERRAPIDISIMO] - ¡BLOQUEADO! Audiencia incorrecta o ausente.
+[2026-04-29 15:09:58] [WARNING] [BOT_INTERRAPIDISIMO] - Token inválido: Audience verification failed
+[2026-04-29 15:09:58] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 401 - Time: 2.51ms
+[2026-04-29 15:14:30] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-29 15:14:30] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-29 15:14:30] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-29 15:14:30] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 1.86ms
+[2026-04-29 15:15:41] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-29 15:15:41] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-29 15:15:41] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-29 15:15:41] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 2.56ms
+[2026-04-29 15:16:01] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-29 15:16:01] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-29 15:16:01] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-29 15:16:01] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 2.53ms
+[2026-04-29 15:16:03] [INFO] [BOT_INTERRAPIDISIMO] - API OPTIONS /admin/users - Status: 200 - Time: 0.00ms
+[2026-04-29 15:16:03] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-29 15:16:03] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-29 15:16:03] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-29 15:16:03] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/users - Status: 200 - Time: 3.91ms
+[2026-04-29 15:16:04] [INFO] [BOT_INTERRAPIDISIMO] - API OPTIONS /admin/config - Status: 200 - Time: 0.00ms
+[2026-04-29 15:16:04] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-29 15:16:04] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-29 15:16:04] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-29 15:16:04] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/config - Status: 200 - Time: 3.22ms
+[2026-04-29 15:16:05] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-29 15:16:05] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-29 15:16:05] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-29 15:16:05] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 3.01ms
+[2026-04-29 15:16:19] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-29 15:16:19] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-29 15:16:19] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-29 15:16:19] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 2.00ms
+[2026-04-29 15:16:20] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-29 15:16:20] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-29 15:16:20] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-29 15:16:20] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 2.51ms
+[2026-04-29 15:16:21] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-29 15:16:21] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-29 15:16:21] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-29 15:16:21] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/users - Status: 200 - Time: 0.00ms
+[2026-04-29 15:16:30] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-29 15:16:30] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-29 15:16:30] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-29 15:16:30] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 1.01ms
+[2026-04-29 15:23:04] [INFO] [BOT_INTERRAPIDISIMO] - API OPTIONS /admin/channels - Status: 200 - Time: 0.00ms
+[2026-04-29 15:23:04] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-29 15:23:04] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-29 15:23:04] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-29 15:23:04] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 2.52ms
+[2026-04-29 15:23:05] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-29 15:23:05] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-29 15:23:05] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-29 15:23:05] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 2.01ms
+[2026-04-29 15:23:19] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-29 15:23:19] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-29 15:23:19] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-29 15:23:19] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 1.98ms
+[2026-04-29 15:23:30] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-29 15:23:30] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-29 15:23:30] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-29 15:23:30] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 2.10ms
+[2026-04-29 15:23:32] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-29 15:23:32] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-29 15:23:32] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-29 15:23:32] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/users - Status: 200 - Time: 1.52ms
+[2026-04-30 08:33:06] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando servidor API y Bot...
+[2026-04-30 08:33:06] [INFO] [BOT_INTERRAPIDISIMO] - Levantando FastAPI y RAG (Lifespan)...
+[2026-04-30 08:33:07] [INFO] [BOT_INTERRAPIDISIMO] - Cargando índice vectorial desde cache ('storage/')...
+[2026-04-30 08:33:07] [INFO] [BOT_INTERRAPIDISIMO] - Motor de consultas RAG listo.
+[2026-04-30 08:33:07] [INFO] [BOT_INTERRAPIDISIMO] - Bot de Telegram iniciado en segundo plano.
+[2026-04-30 08:34:22] [INFO] [BOT_INTERRAPIDISIMO] - API OPTIONS /admin/channels - Status: 200 - Time: 0.00ms
+[2026-04-30 08:34:24] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-30 08:34:24] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-30 08:34:24] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-30 08:34:24] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 2071.50ms
+[2026-04-30 08:34:25] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-30 08:34:25] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-30 08:34:25] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-30 08:34:25] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 4.63ms
+[2026-04-30 08:34:27] [INFO] [BOT_INTERRAPIDISIMO] - API OPTIONS /admin/users - Status: 200 - Time: 0.00ms
+[2026-04-30 08:34:27] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-30 08:34:27] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-30 08:34:27] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-30 08:34:27] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/users - Status: 200 - Time: 4.55ms
+[2026-04-30 08:34:28] [INFO] [BOT_INTERRAPIDISIMO] - API OPTIONS /admin/config - Status: 200 - Time: 0.00ms
+[2026-04-30 08:34:28] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-30 08:34:28] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-30 08:34:28] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-30 08:34:28] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/config - Status: 200 - Time: 9.95ms
+[2026-04-30 08:34:30] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-30 08:34:30] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-30 08:34:30] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-30 08:34:30] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 6.67ms
+[2026-04-30 08:48:10] [INFO] [BOT_INTERRAPIDISIMO] - API OPTIONS /admin/channels - Status: 200 - Time: 0.00ms
+[2026-04-30 08:48:10] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-30 08:48:10] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-30 08:48:10] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-30 08:48:10] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 2.56ms
+[2026-04-30 08:48:21] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-30 08:48:21] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-30 08:48:21] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-30 08:48:21] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 4.97ms
+[2026-04-30 08:48:45] [INFO] [BOT_INTERRAPIDISIMO] - API OPTIONS /admin/send - Status: 200 - Time: 0.00ms
+[2026-04-30 08:48:45] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-30 08:48:45] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-30 08:48:45] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-30 08:48:46] [INFO] [BOT_INTERRAPIDISIMO] - API POST /admin/send - Status: 200 - Time: 1572.02ms
+[2026-04-30 08:48:56] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-30 08:48:56] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-30 08:48:56] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-30 08:48:56] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 3.10ms
+[2026-04-30 08:49:07] [INFO] [BOT_INTERRAPIDISIMO] - API OPTIONS /admin/users - Status: 200 - Time: 0.00ms
+[2026-04-30 08:49:07] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-30 08:49:07] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-30 08:49:07] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-30 08:49:07] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/users - Status: 200 - Time: 2.06ms
+[2026-04-30 08:49:19] [INFO] [BOT_INTERRAPIDISIMO] - API OPTIONS /admin/config - Status: 200 - Time: 0.00ms
+[2026-04-30 08:49:19] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-30 08:49:19] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-30 08:49:19] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-30 08:49:19] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/config - Status: 200 - Time: 1.65ms
+[2026-04-30 08:49:24] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-30 08:49:24] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-30 08:49:24] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-30 08:49:24] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 3.44ms
+[2026-04-30 08:50:51] [INFO] [BOT_INTERRAPIDISIMO] - API GET /docs - Status: 200 - Time: 0.56ms
+[2026-04-30 08:50:52] [INFO] [BOT_INTERRAPIDISIMO] - API GET /openapi.json - Status: 200 - Time: 21.64ms
+[2026-04-30 09:11:22] [INFO] [BOT_INTERRAPIDISIMO] - API OPTIONS /admin/channels - Status: 200 - Time: 0.00ms
+[2026-04-30 09:11:22] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-30 09:11:22] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-30 09:11:22] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-30 09:11:22] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 4.48ms
+[2026-04-30 09:12:08] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-30 09:12:08] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-30 09:12:08] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-30 09:12:08] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 2.98ms
+[2026-04-30 09:12:46] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-30 09:12:46] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-30 09:12:46] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-30 09:12:46] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 0.00ms
+[2026-04-30 09:12:48] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-30 09:12:48] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-30 09:12:48] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-30 09:12:48] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 7.71ms
+[2026-04-30 09:12:51] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-30 09:12:51] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-30 09:12:51] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-30 09:12:51] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 4.31ms
+[2026-04-30 09:12:53] [INFO] [BOT_INTERRAPIDISIMO] - API OPTIONS /admin/users - Status: 200 - Time: 0.00ms
+[2026-04-30 09:12:53] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-30 09:12:53] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-30 09:12:53] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-30 09:12:53] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/users - Status: 200 - Time: 2.30ms
+[2026-04-30 09:12:57] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-30 09:12:57] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-30 09:12:57] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-30 09:12:57] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 2.43ms
+[2026-04-30 09:18:04] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-30 09:18:04] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-30 09:18:04] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-30 09:18:04] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 3.11ms
+[2026-04-30 09:19:14] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-30 09:19:14] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-30 09:19:14] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-30 09:19:14] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 0.00ms
+[2026-04-30 09:19:15] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-30 09:19:15] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-30 09:19:15] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-30 09:19:15] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/users - Status: 200 - Time: 3.04ms
+[2026-04-30 09:19:16] [INFO] [BOT_INTERRAPIDISIMO] - API OPTIONS /admin/config - Status: 200 - Time: 0.00ms
+[2026-04-30 09:19:16] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-30 09:19:16] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-30 09:19:16] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-30 09:19:16] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/config - Status: 200 - Time: 1.81ms
+[2026-04-30 09:19:25] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-30 09:19:25] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-30 09:19:25] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-30 09:19:25] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 4.34ms
+[2026-04-30 09:21:02] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-30 09:21:02] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-30 09:21:02] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-30 09:21:02] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 9.08ms
+[2026-04-30 09:22:28] [INFO] [BOT_INTERRAPIDISIMO] - API OPTIONS /admin/channels - Status: 200 - Time: 0.00ms
+[2026-04-30 09:22:28] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-30 09:22:28] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-30 09:22:28] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-30 09:22:28] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 3.52ms
+[2026-04-30 09:22:51] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-30 09:22:51] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-30 09:22:51] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-30 09:22:51] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/users - Status: 200 - Time: 2.62ms
+[2026-04-30 09:23:17] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-30 09:23:17] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-30 09:23:17] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-30 09:23:17] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/config - Status: 200 - Time: 2.11ms
+[2026-04-30 09:47:08] [INFO] [BOT_INTERRAPIDISIMO] - API OPTIONS /admin/channels - Status: 200 - Time: 0.00ms
+[2026-04-30 09:47:08] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-30 09:47:08] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-30 09:47:08] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-30 09:47:08] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 0.00ms
+[2026-04-30 09:47:11] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Claims presentes: ['exp', 'iat', 'auth_time', 'jti', 'iss', 'aud', 'sub', 'typ', 'azp', 'sid', 'acr', 'allowed-origins', 'scope', 'email_verified', 'preferred_username', 'email']
+[2026-04-30 09:47:11] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Audience en token: ApiTelegramProd
+[2026-04-30 09:47:11] [INFO] [BOT_INTERRAPIDISIMO] - DEBUG TOKEN - Esperado: ApiTelegramProd
+[2026-04-30 09:47:11] [INFO] [BOT_INTERRAPIDISIMO] - API GET /admin/channels - Status: 200 - Time: 5.17ms
+[2026-04-30 10:38:47] [INFO] [BOT_INTERRAPIDISIMO] - Iniciando servidor API y Bot...
+[2026-04-30 10:38:47] [INFO] [BOT_INTERRAPIDISIMO] - Levantando FastAPI y RAG (Lifespan)...
+[2026-04-30 10:38:47] [INFO] [BOT_INTERRAPIDISIMO] - Bot de Telegram iniciado en segundo plano.
