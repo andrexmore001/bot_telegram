@@ -203,6 +203,11 @@ async def respond_with_rag(
 
     
     if not AI_ENABLED:
+        await message.answer(
+            "📦 **¡Hola! Estamos ajustando nuestro flujo de información.**\n\n"
+            "¡Muy pronto estaré listo para darte la mejor ruta de respuesta a tus dudas! 🚀",
+            parse_mode="Markdown"
+        )
         return
 
     if not message.text:
